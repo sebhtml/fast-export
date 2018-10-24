@@ -198,6 +198,8 @@ def export_commit(ui,repo,revision,old_marks,max,count,authors,
 
   parents = [p for p in repo.changelog.parentrevs(revision) if p >= 0]
 
+  desc += "\n\nchangeset:   " + str(revision) + ":" + repo[revision].hex()
+
   if len(parents)==0 and revision != 0:
     wr('reset refs/heads/%s' % branch)
 
